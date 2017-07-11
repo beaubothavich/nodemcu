@@ -38,11 +38,12 @@ void loop() {
 
       char tempoutstr[25] = "temp=";
       String token = "&token=65beb48699b1e32986c50ee01fc1f4d3a0343f133cfff657b584863035bb14d3";
+      String ref = "&ref=1";
       dtostrf(temp, 4, 2, &tempoutstr[5]);
            
-      http.begin("http://meteor-workspace-beaurulez.c9users.io/api/temp");
+      http.begin("http://medmo.herokuapp.com/api/temp");
       http.addHeader("Content-Type", "application/x-www-form-urlencoded");
-      http.POST(tempoutstr+token);
+      http.POST(tempoutstr+token+ref);
       http.writeToStream(&Serial);
       Serial.println();
       http.end();
